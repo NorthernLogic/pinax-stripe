@@ -254,7 +254,7 @@ class InvoiceItem(models.Model):
 
 class Charge(StripeObject):
 
-    customer = models.ForeignKey(Customer, related_name="charges")
+    customer = models.ForeignKey(Customer, null=True, related_name="charges")
     invoice = models.ForeignKey(Invoice, null=True, related_name="charges")
     source = models.CharField(max_length=100)
     currency = models.CharField(max_length=10, default="usd")
